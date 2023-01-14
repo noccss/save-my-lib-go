@@ -7,6 +7,7 @@ import (
 	"syscall"
 
 	"github.com/Noccss/save-my-lib/config"
+	"github.com/Noccss/save-my-lib/internal/app"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -17,6 +18,8 @@ func main() {
 	if err := loadConfig(".env"); err != nil {
 		logrus.Error("error to load environment variables")
 	}
+
+	app.StartApi()
 
 	sigterm()
 }
